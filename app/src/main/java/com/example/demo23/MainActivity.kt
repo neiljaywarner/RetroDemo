@@ -21,7 +21,5 @@ class MainActivity : AppCompatActivity() {
 
         Log.e("NJW", "num items")
 
-        val nameString = viewModel.getFirstRepoName()
-        text_message.text = nameString
     }
 }

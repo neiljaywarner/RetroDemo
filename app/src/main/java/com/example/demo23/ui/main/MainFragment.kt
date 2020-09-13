@@ -7,19 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.viewModelScope
 import com.example.demo23.R
-import com.example.demo23.model.Repo
-import com.example.demo23.network.GitHubService
-import com.example.demo23.network.User
 import kotlinx.android.synthetic.main.main_fragment.*
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 
 class MainFragment : Fragment() {
 
@@ -39,10 +28,12 @@ class MainFragment : Fragment() {
         // TODO: Don't commit to repo a todo like this
 
 
-        Log.e("NJW", "num items")
+        val list = viewModel.getRepos()
+        val firstName = list.first().name
+        Log.e("NJW", "FirstName")
+        Log.e("NJW", "num items: ${list.size}")
 
-        val nameString = viewModel.getFirstRepoName()
-        text_message.text = nameString
+        recyclerview.adapter = RepoAdapter(viewModel.getRepos())
         return view
     }
 

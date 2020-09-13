@@ -1,10 +1,8 @@
 package com.example.demo23.network
 
 import com.example.demo23.model.Repo
-import okhttp3.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
-
 
 interface GitHubService {
 

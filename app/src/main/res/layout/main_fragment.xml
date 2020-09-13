@@ -19,4 +19,10 @@
         android:layout_height="wrap_content"
         android:text="MainFragment" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

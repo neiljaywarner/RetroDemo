@@ -16,7 +16,7 @@ import java.lang.Exception
 class MainViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 
-    fun getFirstRepoName() : String {
+    fun getRepos() : List<Repo> {
         val retrofit = Retrofit.Builder()
             .baseUrl("http://api.github.com")
             .addConverterFactory(GsonConverterFactory.create())
@@ -24,9 +24,10 @@ class MainViewModel : ViewModel() {
 
         val gitHubService = retrofit.create(GitHubService::class.java)
         var firstRepoName = ""
-        viewModelScope.launch(Dispatchers.IO) {
+        var listRepos: List<Repo> = emptyList()
+        viewModelScope.launch() {
             try {
-                val listRepos = gitHubService.getRepos("neiljaywarner")
+                listRepos = gitHubService.getRepos("neiljaywarner")
                 Log.e("NJW", "user = ${listRepos.first().name}")
                 Log.e("NJW", "user = ${listRepos.size}")
                 firstRepoName = listRepos.first().name
@@ -36,6 +37,6 @@ class MainViewModel : ViewModel() {
                 Log.e("NJW", "error code =${exception.message}}")
             }
         }
-        return firstRepoName
+        return listRepos
     }
 }
