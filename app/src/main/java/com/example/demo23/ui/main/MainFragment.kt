@@ -35,6 +35,7 @@ class MainFragment : Fragment() {
 
         recyclerview.adapter = RepoAdapter(viewModel.getRepos())
         return view
+        ///***** NOTE: Work in progress
     }
 
 

@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.example.demo23.ui.main.MainFragment
 import com.example.demo23.ui.main.MainViewModel
+import com.example.demo23.ui.main.RepoAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,17 @@ class MainActivity : AppCompatActivity() {
 
 
         Log.e("NJW", "num items")
+        // TODO: Use the ViewModel
+
+        text_message.text = "hi"
+        // TODO: Don't commit to repo a todo like this
+
+
+
+        /*
+        recyclerview.adapter = RepoAdapter(viewModel.getRepos())
+
+         */
 
     }
 }
